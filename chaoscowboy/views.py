@@ -14,9 +14,41 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 from django.http import HttpResponse
+from django.template import RequestContext, loader
 import pyrax
 
 pyrax.set_setting("identity_type", "rackspace")
+
+def status(request):
+    template = loader.get_template('status.html')
+    context = RequestContext(request, {})
+    return HttpResponse(template.render(context))
+
+def actions(request):
+    template = loader.get_template('actions.html')
+    context = RequestContext(request, {})
+    return HttpResponse(template.render(context))
+
+def action_groups(request):
+    template = loader.get_template('action_groups.html')
+    context = RequestContext(request, {})
+    return HttpResponse(template.render(context))
+
+def scheduling(request):
+    template = loader.get_template('scheduling.html')
+    context = RequestContext(request, {})
+    return HttpResponse(template.render(context))
+
+def reporting(request):
+    template = loader.get_template('reporting.html')
+    context = RequestContext(request, {})
+    return HttpResponse(template.render(context))
+
+def settings(request):
+    template = loader.get_template('settings.html')
+    context = RequestContext(request, {})
+    return HttpResponse(template.render(context))
+
 
 def home(request):
     pyrax.set_credentials(request.user.rax_username, request.user.rax_api_key)

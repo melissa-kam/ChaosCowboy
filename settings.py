@@ -1,5 +1,5 @@
 # Django settings for ChaosCowboy project.
-
+import os
 # Dirty way of keeping the django secret key out of a checked in file.
 from django.utils.crypto import get_random_string
 
@@ -89,10 +89,12 @@ STATIC_URL = '/static/'
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Additional locations of static files
+PROJECT_DIR = os.path.dirname(__file__)
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    os.path.join(PROJECT_DIR, 'static'),
 )
 
 # List of finder classes that know how to find static files in

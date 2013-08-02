@@ -1,5 +1,6 @@
 .idea
 .venv*
+venv*
 settings_secret.py
 
 *.pyc

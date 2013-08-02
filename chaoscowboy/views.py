@@ -40,7 +40,9 @@ def action_groups(request):
 
 def scheduling(request):
     template = loader.get_template('scheduling.html')
-    context = RequestContext(request, {})
+    # Later change to QueuedAction
+    jobs = ActionTemplate.objects.order_by('start_time')
+    context = RequestContext(request, {'jobs': jobs})
     return HttpResponse(template.render(context))
 
 def reporting(request):

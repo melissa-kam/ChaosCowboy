@@ -33,10 +33,6 @@ urlpatterns = patterns(
     url(r'^settings/', 'chaoscowboy.views.settings', name='settings'),
     # url(r'^ChaosCowboy/', include('ChaosCowboy.foo.urls')),
 
-    url(r'^settings/', 'chaoscowboy.views.settings', name='settings'),
-
-    url(r'^schedule/', 'chaoscowboy.views.schedule', name='schedule'),
-
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 

@@ -2,6 +2,7 @@
 
 # Dirty way of keeping the django secret key out of a checked in file.
 from django.utils.crypto import get_random_string
+
 try:
     from settings_secret import *
 except ImportError:
@@ -37,6 +38,8 @@ DATABASES = {
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
+
+AUTH_USER_MODEL = 'chaoscowboy.CowboyUser'
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name

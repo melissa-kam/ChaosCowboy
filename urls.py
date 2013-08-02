@@ -25,12 +25,12 @@ urlpatterns = patterns(
     '',
     # Examples:
     url(r'^$', 'chaoscowboy.views.status', name='status'),
-    url(r'^status.html', 'chaoscowboy.views.status', name='status'),
-    url(r'^actions.html', 'chaoscowboy.views.actions', name='actions'),
-    url(r'^action_groups.html', 'chaoscowboy.views.action_groups', name='action_groups'),
-    url(r'^scheduling.html', 'chaoscowboy.views.scheduling', name='scheduling'),
-    url(r'^reporting.html', 'chaoscowboy.views.reporting', name='reporting'),
-    url(r'^settings.html', 'chaoscowboy.views.settings', name='settings'),
+    url(r'^status/', 'chaoscowboy.views.status', name='status'),
+    url(r'^actions/', 'chaoscowboy.views.actions', name='actions'),
+    url(r'^action_groups/', 'chaoscowboy.views.action_groups', name='action_groups'),
+    url(r'^scheduling/', 'chaoscowboy.views.scheduling', name='scheduling'),
+    url(r'^reporting/', 'chaoscowboy.views.reporting', name='reporting'),
+    url(r'^settings/', 'chaoscowboy.views.settings', name='settings'),
     # url(r'^ChaosCowboy/', include('ChaosCowboy.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

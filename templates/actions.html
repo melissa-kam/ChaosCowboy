@@ -40,14 +40,16 @@
               <th></th>
             </tr>
             <tbody>
+            {% for action in actions%}
               <tr>
                 <td><input type="checkbox" /></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{ action.name }}</td>
+                <td>{{ action.type }}</td>
+                <td>{{ action.target }}</td>
+                <td>{{ action.start_time }}</td>
                 <td><i class="glyphicon glyphicon-cog"></i></td>
               </tr>
+            {%endfor%}
             </tbody>
           </table>
         </div>

@@ -13,6 +13,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 """
+from chaoscowboy.models import ActionTemplate
 from django.http import HttpResponse
 from django.template import RequestContext, loader
 import pyrax
@@ -26,7 +27,10 @@ def status(request):
 
 def actions(request):
     template = loader.get_template('actions.html')
-    context = RequestContext(request, {})
+    actions = ActionTemplate.objects.all()
+    context = RequestContext(request, {
+        'actions': actions
+    })
     return HttpResponse(template.render(context))
 
 def action_groups(request):
@@ -46,7 +50,12 @@ def reporting(request):
 
 def settings(request):
     template = loader.get_template('settings.html')
-    context = RequestContext(request, {})
+    username = request.user.rax_username
+    api_key = request.user.rax_api_key
+    context = RequestContext(request, {
+        'username': username,
+        'key': api_key
+    })
     return HttpResponse(template.render(context))
 
 
@@ -63,7 +72,7 @@ def home(request):
     html = "<html><body>"
 
     for server in all_servers:
-        html += "Server: %s <br/>" % server.name
+        html += "Server: {0} ({1}) <br/>".format(server.name, server.status)
 
     html += "</body></html>"
 

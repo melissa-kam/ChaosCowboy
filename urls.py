@@ -13,17 +13,18 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 """
-from django.conf.urls.defaults import patterns, include, url
+from django.conf.urls import patterns, include, url
 
 from admin.models import register_admin_models
 from django.contrib import admin
+
 admin.autodiscover()
 register_admin_models()
 
 urlpatterns = patterns(
     '',
     # Examples:
-    # url(r'^$', 'ChaosCowboy.views.home', name='home'),
+    url(r'^$', 'chaoscowboy.views.home', name='home'),
     # url(r'^ChaosCowboy/', include('ChaosCowboy.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

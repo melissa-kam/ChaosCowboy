@@ -15,7 +15,13 @@ limitations under the License.
 """
 from django.db.models import Model, CharField, DateTimeField, ManyToManyField
 from jsonfield import JSONField
+from django.db import models
+from django.contrib.auth.models import (
+    AbstractUser)
 
+class CowboyUser(AbstractUser):
+    rax_username = models.CharField(max_length=16)
+    rax_api_key = models.CharField(max_length=64)
 
 class ActionTemplate(Model):
     name = CharField(max_length=255)

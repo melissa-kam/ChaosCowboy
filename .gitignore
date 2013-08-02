@@ -1,0 +1,6 @@
+.idea
+.venv*
+settings_secret.py
+
+*.pyc
+*.sqlite
